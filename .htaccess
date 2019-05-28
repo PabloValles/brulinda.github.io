@@ -1,0 +1,13 @@
+#IMPEDIR QUE SE PUEDA VER EL DIRECTORIO
+
+Options All -Indexes
+
+#URL'S AMIGABLES
+
+RewriteEngine on
+
+RewriteRule ^(\w+)$ index.php?action=$1
+
+RewriteCond %{SCRIPT_FILENAME} -d [OR]
+RewriteCond %{SCRIPT_FILENAME} -f
+RewriteRule "(^|/)\." - [F]
